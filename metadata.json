@@ -1,0 +1,7 @@
+{
+  "name": "号个脉",
+  "description": "账号问诊，陪你把账号慢慢理顺。这是一款基于 AI 的小红书账号诊断工具，旨在为创作者提供温和、清晰的成长建议。",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
