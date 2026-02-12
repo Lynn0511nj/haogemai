@@ -1,7 +1,18 @@
 import { UserContext, DiagnosisResult } from "../types";
 
 // 使用本地服务端代理
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+// 动态获取当前主机，支持通过 IP 访问
+const getApiBaseUrl = () => {
+  if (import.meta.env.VITE_API_BASE_URL) {
+    return import.meta.env.VITE_API_BASE_URL;
+  }
+  // 使用当前访问的主机和端口 3001
+  const protocol = window.location.protocol;
+  const hostname = window.location.hostname;
+  return `${protocol}//${hostname}:3001`;
+};
+
+const API_BASE_URL = getApiBaseUrl();
 const DOUBAO_API_ENDPOINT = `${API_BASE_URL}/api/doubao`;
 
 // 开发环境日志辅助函数
